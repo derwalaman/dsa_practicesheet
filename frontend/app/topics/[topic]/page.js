@@ -21,7 +21,7 @@ export default function TopicPage() {
         const fetchQuestions = async () => {
             try {
                 toast.loading(`Fetching ${topic} questions...`);
-                const res = await fetch(`http://localhost:5001/api/questions/${topic}`);
+                const res = await fetch(`https://dsa-practicesheet.onrender.com/api/questions/${topic}`);
                 const data = await res.json();
 
                 if (res.ok) {
