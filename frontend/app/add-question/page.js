@@ -39,7 +39,7 @@ export default function AddQuestionPage() {
         e.preventDefault();
         setLoggingIn(true);
         try {
-            const res = await fetch("http://localhost:5001/api/admins/login", {
+            const res = await fetch("https://dsa-practicesheet.onrender.com/api/admins/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ adminId, password: adminPass }),
