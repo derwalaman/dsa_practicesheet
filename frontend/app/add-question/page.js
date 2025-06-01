@@ -64,7 +64,7 @@ export default function AddQuestionPage() {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch("http://localhost:5001/api/questions/add", {
+            const res = await fetch("https://dsa-practicesheet.onrender.com/api/questions/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
