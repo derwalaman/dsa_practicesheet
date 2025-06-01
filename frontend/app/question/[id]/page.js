@@ -19,7 +19,7 @@ export default function QuestionDetailsPage() {
         const fetchQuestion = async () => {
             try {
                 toast.loading("Fetching question...");
-                const res = await fetch(`http://localhost:5001/api/questions/single/${id}`);
+                const res = await fetch(`https://dsa-practicesheet.onrender.com/api/questions/single/${id}`);
                 const data = await res.json();
 
                 if (res.ok) {
