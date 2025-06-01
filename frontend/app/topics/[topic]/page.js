@@ -45,7 +45,7 @@ export default function TopicPage() {
 
     const toggleRevision = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5001/api/questions/toggle-revision/${id}`, {
+            const res = await fetch(`https://dsa-practicesheet.onrender.com/api/questions/toggle-revision/${id}`, {
                 method: "PATCH",
             });
             const data = await res.json();
