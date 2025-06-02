@@ -98,9 +98,13 @@ export default function QuestionDetailsPage() {
                         )}
 
                         {question.note && (
-                            <div className="mt-4 bg-[#23233b] border-l-4 border-green-400 p-4 rounded">
+                            /*<div className="mt-4 bg-[#23233b] border-l-4 border-green-400 p-4 rounded">
                                 <p className="text-green-300 font-semibold">Note:</p>
                                 <pre className="text-gray-200 whitespace-pre-wrap">{question.noteText}</pre>
+                            </div>*/
+                            <div className="mb-4 bg-[#23233b] p-4 rounded-xl">
+                                <h2 className="text-lg font-semibold text-[#7fffd4] mb-2">Note:</h2>
+                                <pre className="text-gray-100 whitespace-pre-wrap">{question.noteText}</pre>
                             </div>
                         )}
                     </section>
