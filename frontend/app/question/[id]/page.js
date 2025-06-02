@@ -100,7 +100,7 @@ export default function QuestionDetailsPage() {
                         {question.note && (
                             <div className="mt-4 bg-[#23233b] border-l-4 border-green-400 p-4 rounded">
                                 <p className="text-green-300 font-semibold">Note:</p>
-                                <pre className="text-gray-200">{question.noteText}</pre>
+                                <pre className="text-gray-200 whitespace-pre-wrap">{question.noteText}</pre>
                             </div>
                         )}
                     </section>
