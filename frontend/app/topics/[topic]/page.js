@@ -107,13 +107,13 @@ export default function TopicPage() {
                             className="w-full sm:w-1/2 px-4 py-2 rounded-lg bg-[#1a1830] text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#7f5af0]"
                         >
                             <option value="">All Companies</option>
-                            {[...new Set(questions.flatMap((q) => q.companies.map((c) => c.name)))].map(
-                                (company, idx) => (
-                                    <option key={idx} value={company}>
-                                        {company}
-                                    </option>
-                                )
-                            )}
+                            <option value="Google">Google</option>
+                            <option value="Flipkart">Flipkart</option>
+                            <option value="Amazon">Amazon</option>
+                            <option value="Netflix">Netflix</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Microsoft">Microsoft</option>
+                            <option value="Uber">Uber</option>
                         </select>
 
                         <select
