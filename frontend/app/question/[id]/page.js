@@ -155,7 +155,7 @@ export default function QuestionDetailsPage() {
                                             title={pf}
                                             onError={(e) => (e.currentTarget.src = "/platform/default.png")}
                                             className="h-10 w-10 rounded bg-white p-1 shadow"
-                                            onClick={() => window.open(``, '_blank')}
+                                            onClick={() => window.open(question.platformLink[i], '_blank')}
                                         />
                                     ))}
                                 </div>
