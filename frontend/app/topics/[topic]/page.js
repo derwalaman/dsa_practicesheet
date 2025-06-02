@@ -86,7 +86,7 @@ export default function TopicPage() {
             <Toaster position="top-center" />
             <Navbar />
 
-            <main className="flex-1 px-4 sm:px-6 lg:px-10 py-10 max-w-7xl mx-auto w-full">
+            <main className="flex-1 mt-[80px] px-4 sm:px-6 lg:px-10 py-10 max-w-7xl mx-auto w-full">
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize w-full lg:w-[30%]">
                         {topic.replace(/-/g, " ")} Questions
@@ -134,15 +134,14 @@ export default function TopicPage() {
                 ) : (
                     <>
                         <div className="w-full overflow-x-auto rounded-xl">
-                            <table className="min-w-full text-left text-sm">
+                            <table className="min-w-full text-left text-sm table-fixed">
                                 <thead className="bg-[#1a1830] text-[#7f5af0]">
                                     <tr>
-                                        <th className="py-3 px-4">ID</th>
-                                        <th className="py-3 px-4">Title</th>
-                                        <th className="py-3 px-4">Level</th>
-                                        <th className="py-3 px-4">Platform</th>
-                                        <th className="py-3 px-4">Companies</th>
-                                        <th className="py-3 px-4">Revision</th>
+                                        {["ID", "Title", "Level", "Platform", "Companies", "Revision"].map((header, i) => (
+                                            <th key={i} className="py-3 px-4 whitespace-nowrap h-[60px]">
+                                                {header}
+                                            </th>
+                                        ))}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -155,12 +154,16 @@ export default function TopicPage() {
                                                 window.location.href = `../../question/${q._id}`;
                                             }}
                                         >
-                                            <td className="py-3 px-4 text-gray-300">
+                                            <td className="py-3 px-4 whitespace-nowrap overflow-hidden text-ellipsis max-w-[50px] h-[60px] text-gray-300">
                                                 {(currentPage - 1) * questionsPerPage + idx + 1}
                                             </td>
-                                            <td className="py-3 px-4 text-white font-medium">{q.title}</td>
-                                            <td className="py-3 px-4 text-sm text-yellow-400">{q.level}</td>
-                                            <td className="py-3 px-4">
+                                            <td className="py-3 px-4 whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] h-[60px] font-medium" title={q.title}>
+                                                {q.title}
+                                            </td>
+                                            <td className="py-3 px-4 whitespace-nowrap overflow-hidden text-ellipsis max-w-[100px] h-[60px] text-yellow-400">
+                                                {q.level}
+                                            </td>
+                                            <td className="py-3 px-4 whitespace-nowrap max-w-[120px] h-[60px]">
                                                 <div className="flex gap-2 flex-wrap">
                                                     {q.platform.map((pf, i) => {
                                                         const plat_form = pf?.toLowerCase?.();
@@ -168,15 +171,15 @@ export default function TopicPage() {
                                                             <img
                                                                 key={i}
                                                                 src={`/platform/${plat_form}.png`}
-                                                                alt={pf.name}
-                                                                title={pf.name}
+                                                                alt={pf}
+                                                                title={pf}
                                                                 className="w-6 h-6 bg-white rounded-full object-contain border border-white/20"
                                                             />
                                                         ) : null;
                                                     })}
                                                 </div>
                                             </td>
-                                            <td className="py-3 px-4">
+                                            <td className="py-3 px-4 whitespace-nowrap max-w-[120px] h-[60px]">
                                                 <div className="flex gap-2 flex-wrap">
                                                     {q.companies.map((company, i) => {
                                                         const name = company?.toLowerCase?.();
@@ -184,20 +187,17 @@ export default function TopicPage() {
                                                             <img
                                                                 key={i}
                                                                 src={`/companies/${name}.png`}
-                                                                alt={company.name}
-                                                                title={company.name}
+                                                                alt={company}
+                                                                title={company}
                                                                 className="w-6 h-6 bg-white rounded-full object-contain border border-white/20"
                                                             />
                                                         ) : null;
                                                     })}
                                                 </div>
                                             </td>
-                                            <td className="py-3 px-4">
+                                            <td className="py-3 px-4 whitespace-nowrap h-[60px]">
                                                 <FaStar
-                                                    className={`text-xl cursor-pointer transition ${q.revision
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-500"
-                                                        }`}
+                                                    className={`text-xl cursor-pointer transition ${q.revision ? "text-yellow-400" : "text-gray-500"}`}
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         toggleRevision(q._id);
