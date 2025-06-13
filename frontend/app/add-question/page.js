@@ -40,9 +40,9 @@ export default function AddQuestionPage() {
         e.preventDefault();
         setLoggingIn(true);
         try {
-            const res = await fetch('http://localhost:5001/api/admins/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const res = await fetch("https://dsa-practicesheet.onrender.com/api/admins/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ adminId, password: adminPass }),
             });
             const data = await res.json();
@@ -83,9 +83,9 @@ export default function AddQuestionPage() {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch('http://localhost:5001/api/questions/add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const res = await fetch("https://dsa-practicesheet.onrender.com/api/questions/add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     ...form,
                     companies: form.companies.filter((c) => c.trim() !== ''),
