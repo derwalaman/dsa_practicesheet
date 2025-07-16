@@ -8,8 +8,8 @@ const MONGO_URI = "mongodb+srv://amanderwal02:Derwal%40150205@cluster0.ubpiqur.m
 
 const seedAdmins = async () => {
   try {
-    await mongoose.connect(MONGO_URI, { dbName: "dsa" });
-
+    await mongoose.connect(MONGO_URI, { dbName: "dsa" }); 
+    console.log("✅ Connected to MongoDB!");
     // Clear previous data
     // await Questions.deleteMany();
 
