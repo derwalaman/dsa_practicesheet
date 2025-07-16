@@ -15,6 +15,7 @@ export default function HomePage() {
     "Trees",
     "Graphs",
     "Dynamic Programming",
+    "Backtracking",
   ];
 
   const handleCardClick = (topic) => {
